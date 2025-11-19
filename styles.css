@@ -1,0 +1,220 @@
+/* ------------------- BASE ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f7f5f0;
+    font-family: 'Lora', serif;
+    color: #2b2b2b;
+    overflow-x: hidden;
+}
+
+/* Textura premium */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("https://i.imgur.com/QqtBPzd.png");
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ------------------- NAV ------------------- */
+
+.nav {
+    position: fixed;
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: #4f634a;
+}
+
+.nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #2b2b2b;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #4f634a;
+}
+
+/* ------------------- HERO ------------------- */
+
+.hero {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    background: linear-gradient(#6d8465, #506c53);
+    position: absolute;
+    inset: 0;
+    transform: scale(1.2);
+    animation: parallax 12s ease-in-out infinite alternate;
+}
+
+@keyframes parallax {
+    0% { transform: scale(1.2) translateY(0); }
+    100% { transform: scale(1.3) translateY(-30px); }
+}
+
+.decor {
+    position: absolute;
+    width: 350px;
+    opacity: 0.16;
+}
+
+.decor-left { left: -30px; bottom: -20px; }
+.decor-right { right: -20px; top: 10px; }
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    letter-spacing: 20px;
+}
+
+.sub {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.frase {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+/* Wave */
+.wave {
+    width: 100%;
+    height: 100px;
+    background: url("https://i.imgur.com/MJExGmO.png") repeat-x;
+    margin-top: -60px;
+}
+
+/* ------------------- SECTIONS ------------------- */
+
+.section {
+    padding: 100px 14%;
+}
+
+.titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #4f634a;
+    margin-bottom: 25px;
+}
+
+/* quote */
+.quote {
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* ------------------- BENEFICIOS ------------------- */
+
+.benef-grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.benef-card {
+    background: #ffffffcc;
+    border-radius: 12px;
+    padding: 35px;
+    border-left: 5px solid #4f634a;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    transition: 0.4s;
+}
+
+.benef-card:hover {
+    transform: translateY(-7px);
+}
+
+/* ------------------- ENCUESTAS ------------------- */
+
+.encuestas-grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.enc-box {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    border-left: 6px solid #4f634a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.bar {
+    margin: 12px 0;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    background: #4f634a;
+    margin-top: 5px;
+}
+
+/* ------------------- MATERIAS ------------------- */
+
+.ingrediente {
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    border-left: 5px solid #4f634a;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+    text-align: center;
+    background: #4f634a;
+    color: white;
+    padding: 40px;
+    margin-top: 60px;
+}

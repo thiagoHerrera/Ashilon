@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashlion — Suplemento Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ================= BASE ================= */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:"Lora",serif;background:#f7f5f0;color:#2b2b2b;overflow-x:hidden;line-height:1.7;
+}
+body::before{
+content:"";position:fixed;inset:0;background:url("https://i.imgur.com/QqtBPzd.png");opacity:.14;pointer-events:none;z-index:-1;
+}
+h1,h2,h3{font-family:"Playfair Display";}
+
+/* ================ NAV ================= */
+nav{
+position:fixed;top:0;width:100%;padding:15px 40px;
+background:rgba(255,255,255,.75);backdrop-filter:blur(10px);box-shadow:0 4px 25px rgba(0,0,0,.08);z-index:999;
+}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;}
+.nav-logo{letter-spacing:4px;font-size:1.8rem;color:#4f634a;font-weight:700;}
+.nav-links{display:flex;gap:22px;list-style:none;}
+.nav-links a{text-decoration:none;color:#333;font-family:"Inter";transition:.3s;}
+.nav-links a:hover{color:#4f634a;}
+
+/* ================ HERO ================= */
+.hero{
+height:98vh;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;color:white;text-align:center;
+}
+.hero-bg{
+position:absolute;inset:0;background:linear-gradient(#6a8362,#4f6c52);
+animation:heromove 9s ease-in-out infinite alternate;transform:scale(1.2);
+}
+@keyframes heromove{from{transform:scale(1.2);}to{transform:scale(1.3) translateY(-25px);}}
+.decor-left,.decor-right{position:absolute;width:330px;opacity:.15;pointer-events:none;}
+.decor-left{left:-30px;bottom:-20px;} .decor-right{right:-30px;top:-10px;}
+.hero-title{font-size:6.5rem;letter-spacing:15px;margin-bottom:10px;}
+.hero-sub,.hero-frase{opacity:.9;}
+
+/* ================ STORYTELLING ================= */
+.story-section{padding:140px 14%;background:white;}
+.chapter{margin-bottom:90px;opacity:0;transform:translateY(40px);transition:1s;}
+.chapter.visible{opacity:1;transform:translateY(0);}
+.chapter h2{font-size:3rem;color:#4f634a;margin-bottom:10px;}
+
+/* ================ APP PREMIUM ================= */
+.app-section{padding:140px 14%;background:#faf8f4;}
+.titulo-app{text-align:center;font-size:3rem;color:#4f634a;margin-bottom:40px;}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px;}
+.app-card{
+background:rgba(255,255,255,0.75);padding:30px;border-radius:18px;box-shadow:0 12px 35px rgba(0,0,0,0.08);
+backdrop-filter:blur(12px);transition:.3s;cursor:pointer;
+}
+.app-card:hover{transform:translateY(-10px) rotateX(8deg);}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);justify-content:center;align-items:center;z-index:2000;}
+.modal-content{
+background:white;padding:40px;border-radius:20px;width:90%;max-width:480px;position:relative;
+animation:modalIn .4s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:scale(.85);}to{opacity:1;transform:scale(1);}}
+.close{position:absolute;top:15px;right:20px;font-size:2rem;cursor:pointer;}
+
+/* ================ REVISTA ================= */
+.revista{padding:140px 12%;background:#fdfcfa;}
+.revista-layout{display:grid;gap:50px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.revista-col{
+background:white;padding:40px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08);
+opacity:0;transform:translateY(40px);transition:1s;
+}
+.revista-col.visible{opacity:1;transform:translateY(0);}
+.botanic-illus{width:100%;opacity:.9;margin-bottom:8px;}
+
+/* ================ INGREDIENTES ================= */
+.ingredientes-section{padding:140px 12%;background:#faf8f4;}
+.ingrediente-item{
+display:flex;gap:60px;align-items:center;margin-bottom:110px;
+opacity:0;transform:translateY(40px);transition:1s;
+}
+.ingrediente-item.visible{opacity:1;transform:translateY(0);}
+.reverse{flex-direction:row-reverse;}
+.illus{width:330px;filter:drop-shadow(0 10px 25px rgba(0,0,0,.15));}
+
+/* ================ ENCUESTAS ================= */
+.encuestas-section{padding:140px 12%;background:white;}
+.encuestas-grid{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.enc-box{
+background:#ffffffd9;padding:40px;border-left:6px solid #4f634a;border-radius:16px;
+box-shadow:0 10px 35px rgba(0,0,0,.08);backdrop-filter:blur(6px);
+}
+.bar-item{display:flex;align-items:center;justify-content:space-between;margin:12px 0;}
+.bar-bg{width:60%;height:12px;background:#e9e9e9;border-radius:20px;overflow:hidden;}
+.bar-fill{height:100%;width:0;background:#4f634a;transition:1.5s;}
+.bar-num{width:45px;text-align:right;}
+
+/* ================ FODA ================= */
+.foda-section{padding:140px 12%;background:#f6f4ef;}
+.foda-grid{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+.foda-card{
+background:#ffffffd9;padding:40px;border-radius:16px;border-left:6px solid #4f634a;
+opacity:0;transform:translateY(40px);transition:1s;
+}
+.foda-card.visible{opacity:1;transform:translateY(0);}
+
+/* ================ FOOTER ================= */
+.footer{background:#4f634a;color:white;padding:80px 12% 40px;}
+.footer-inner{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.footer-logo{font-size:2.3rem;letter-spacing:4px;}
+.footer-bottom{text-align:center;margin-top:40px;opacity:.8;font-size:.9rem;}
+
+/* ================ SWITCH DARK MODE ================= */
+.darkmode-switch{position:fixed;bottom:25px;right:25px;display:flex;align-items:center;gap:10px;z-index:2000;}
+.darkmode-switch input{display:none;}
+.switch-label{width:60px;height:32px;background:#ccc;border-radius:20px;position:relative;cursor:pointer;transition:.3s;}
+.circle{width:26px;height:26px;background:white;border-radius:50%;position:absolute;top:3px;left:3px;transition:.3s;}
+#toggle-dark:checked + .switch-label{background:#4f634a;}
+#toggle-dark:checked + .switch-label .circle{left:31px;}
+
+/* DARK MODE GLOBAL */
+body.dark{background:#1f261f;color:#e6e6e6;}
+body.dark .footer{background:#192219;}
+body.dark .app-card,body.dark .enc-box,body.dark .foda-card,body.dark .revista-col,body.dark .ingrediente-item{background:rgba(255,255,255,.05);border-left-color:#9cd6a1;}
+body.dark .bar-bg{background:#3f4d3f;}
+body.dark .bar-fill{background:#9cd6a1;}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PARALLAX ================= -->
+<div class="decor-left"><img src="https://i.imgur.com/qKq0oKJ.png" style="width:330px;"></div>
+<div class="decor-right"><img src="https://i.imgur.com/FEpBGIs.png" style="width:330px;"></div>
+
+<!-- ================= NAV ================= -->
+<nav>
+<div class="nav-inner">
+<span class="nav-logo">ASHLION</span>
+<ul class="nav-links">
+<li><a href="#hero">Inicio</a></li>
+<li><a href="#story">Historia</a></li>
+<li><a href="#ingredientes">Ingredientes</a></li>
+<li><a href="#encuestas">Encuestas</a></li>
+<li><a href="#foda">FODA</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="hero" class="hero">
+<div class="hero-bg"></div>
+<div class="hero-content">
+<p class="hero-sub">Suplemento dietario natural</p>
+<h1 class="hero-title">ASHLION</h1>
+<p class="hero-frase">“Encuentra calma en cada gota”</p>
+</div>
+</header>
+
+<!-- ================= STORY ================= -->
+<section id="story" class="story-section">
+<div class="chapter"><h2>CAPÍTULO 1 — El Problema</h2><p>Estrés, agotamiento, desconexión mente-cuerpo.</p></div>
+<div class="chapter"><h2>CAPÍTULO 2 — La Solución</h2><p>Ashwagandha + Melena de León en sinergia.</p></div>
+</section>
+
+<!-- ================= APP PREMIUM ================= -->
+<section id="beneficios" class="app-section">
+<h2 class="titulo-app">Beneficios Premium</h2>
+<div class="app-grid">
+<div class="app-card" data-modal="m1"><h3>Reduce Estrés</h3></div>
+<div class="app-card" data-modal="m2"><h3>Mejora Memoria</h3></div>
+<div class="app-card" data-modal="m3"><h3>Energía Natural</h3></div>
+<div class="app-card" data-modal="m4"><h3>Balance Emocional</h3></div>
+</div>
+</section>
+
+<!-- MODALES -->
+<div class="modal" id="m1"><div class="modal-content"><span class="close">&times;</span><h2>Reduce Estrés</h2><p>Ashwagandha regula cortisol.</p></div></div>
+<div class="modal" id="m2"><div class="modal-content"><span class="close">&times;</span><h2>Mejora Memoria</h2><p>Melena de León estimula NGF.</p></div></div>
+<div class="modal" id="m3"><div class="modal-content"><span class="close">&times;</span><h2>Energía Natural</h2><p>Sin picos ni caída.</p></div></div>
+<div class="modal" id="m4"><div class="modal-content"><span class="close">&times;</span><h2>Balance Emocional</h2><p>Equilibrio cuerpo–mente.</p></div></div>
+
+<!-- ================= REVISTA ================= -->
+<section id="revista" class="revista">
+<h2 class="revista-title" style="text-align:center;color:#4f634a;font-size:3rem;margin-bottom:40px;">Dossier Botánico</h2>
+<div class="revista-layout">
+<div class="revista-col"><h3>Base Científica</h3><p>Estudios modernos respaldan los efectos adaptógenos.</p></div>
+<div class="revista-col"><img src="https://i.imgur.com/OU8ZoVD.png" class="botanic-illus"><p>Melena de León</p></div>
+<div class="revista-col"><h3>Perspectiva Moderna</h3><p>Clave en el bienestar cognitivo actual.</p></div>
+</div>
+</section>
+
+<!-- ================= INGREDIENTES ================= -->
+<section id="ingredientes" class="ingredientes-section">
+<h2 style="text-align:center;font-size:3rem;color:#4f634a;margin-bottom:50px;">Ingredientes</h2>
+
+<div class="ingrediente-item">
+<div class="ingrediente-text">
+<h3>Melena de León</h3>
+<p>Hongo medicinal que estimula el NGF.</p>
+</div>
+<div><img class="illus" src="https://i.imgur.com/pb3S6xH.png"></div>
+</div>
+
+<div class="ingrediente-item reverse">
+<div class="ingrediente-text">
+<h3>Ashwagandha</h3>
+<p>Planta adaptógena que reduce el cortisol.</p>
+</div>
+<div><img class="illus" src="https://i.imgur.com/yhrrNdy.png"></div>
+</div>
+
+</section>
+
+<!-- ================= ENCUESTAS ================= -->
+<section id="encuestas" class="encuestas-section">
+<h2 style="text-align:center;font-size:3rem;color:#4f634a;margin-bottom:30px;">Encuestas</h2>
+<div class="encuestas-grid">
+<div class="enc-box">
+<h3>¿Afecciones comunes?</h3>
+<div class="bar-item" data-value="67"><span>Estrés</span><div class="bar-bg"><div class="bar-fill"></div></div><span class="bar-num">0%</span></div>
+</div>
+<div class="enc-box"><h3>Interés natural</h3><p>89% dice que sí.</p></div>
+</div>
+</section>
+
+<!-- ================= FODA ================= -->
+<section id="foda" class="foda-section">
+<h2 style="text-align:center;font-size:3rem;color:#4f634a;margin-bottom:60px;">FODA</h2>
+<div class="foda-grid">
+<div class="foda-card"><h3>Fortalezas</h3><ul><li>Natural</li><li>Estudios reales</li></ul></div>
+<div class="foda-card"><h3>Oportunidades</h3><ul><li>Mercado creciendo</li></ul></div>
+<div class="foda-card"><h3>Debilidades</h3><ul><li>Costos altos</li></ul></div>
+<div class="foda-card"><h3>Amenazas</h3><ul><li>Competencia</li></ul></div>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+<div class="footer-inner">
+<div><h3 class="footer-logo">ASHLION</h3><p>Proyecto académico.</p></div>
+<div><h4>Navegación</h4><p>Inicio · Ingredientes · Encuestas</p></div>
+</div>
+<div class="footer-bottom">© 2025 Ashlion</div>
+</footer>
+
+<!-- ================= DARK MODE ================= -->
+<div class="darkmode-switch">
+<input type="checkbox" id="toggle-dark">
+<label for="toggle-dark" class="switch-label"><span class="circle"></span></label>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+// capítulos
+document.querySelectorAll('.chapter').forEach(ch=>{
+let obs=new IntersectionObserver(e=>{
+if(e[0].isIntersecting) ch.classList.add('visible');
+},{threshold:.3});
+obs.observe(ch);
+});
+
+// revista
+document.querySelectorAll('.revista-col').forEach(c=>{
+let o=new IntersectionObserver(e=>{
+if(e[0].isIntersecting)c.classList.add('visible');
+},{threshold:.3});o.observe(c);
+});
+
+// ingredientes
+document.querySelectorAll('.ingrediente-item').forEach(item=>{
+let o=new IntersectionObserver(e=>{
+if(e[0].isIntersecting)item.classList.add('visible');
+},{threshold:.3});o.observe(item);
+});
+
+// encuestas
+document.querySelectorAll('.bar-item').forEach(bar=>{
+let o=new IntersectionObserver(e=>{
+if(e[0].isIntersecting){
+let v=bar.dataset.value;
+bar.querySelector('.bar-fill').style.width=v+"%";
+let num=bar.querySelector('.bar-num');
+let count=0;
+let i=setInterval(()=>{num.textContent=count+"%";if(count>=v)clearInterval(i);count++;},15);
+o.unobserve(bar);
+}}, {threshold:.3});
+o.observe(bar);
+});
+
+// modal
+document.querySelectorAll('.app-card').forEach(card=>{
+card.onclick=()=>document.getElementById(card.dataset.modal).style.display="flex";
+});
+document.querySelectorAll('.close').forEach(c=>{
+c.onclick=()=>c.parentElement.parentElement.style.display="none";
+});
+
+// dark
+document.getElementById("toggle-dark").onchange=()=>document.body.classList.toggle("dark");
+</script>
+
+</body>
+</html>

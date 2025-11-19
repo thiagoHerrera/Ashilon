@@ -1,0 +1,55 @@
+.revista {
+    background:#fdfcfa;
+    padding:140px 12%;
+    position:relative;
+}
+
+.revista-header { 
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.revista-titulo {
+    font-family:"Playfair Display", serif;
+    font-size:3.4rem;
+    color:#4f634a;
+}
+
+.revista-sub {
+    font-size:1.2rem;
+    margin-top:10px;
+    opacity:.75;
+}
+
+.revista-layout {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap:60px;
+}
+
+.revista-col {
+    background:#ffffffea;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.08);
+    backdrop-filter:blur(5px);
+}
+
+.revista-col h3 {
+    color:#4f634a;
+    font-size:1.8rem;
+    margin-bottom:15px;
+}
+
+.botanic-illus {
+    width:100%;
+    opacity:.9;
+    margin-bottom:10px;
+}
+
+.revista-caption {
+    font-size:.9rem;
+    opacity:.6;
+    font-style:italic;
+    margin-bottom:20px;
+}

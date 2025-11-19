@@ -1,0 +1,34 @@
+/* Capas globales de parallax */
+.parallax-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Capa trasera */
+.layer-back {
+    background: url("https://i.imgur.com/N2gXR9H.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: .20;
+    filter: blur(2px);
+}
+
+/* Capa intermedia */
+.layer-mid {
+    background: url("https://i.imgur.com/sPeOJeZ.png");
+    background-size: 1500px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    opacity: .15;
+}
+
+/* Capa frontal (botánica decorativa) */
+.layer-front {
+    background: url("https://i.imgur.com/7d7PrZQ.png");
+    background-size: 900px;
+    background-repeat: no-repeat;
+    background-position: top right;
+    opacity: .18;
+}

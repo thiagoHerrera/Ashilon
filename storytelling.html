@@ -1,0 +1,52 @@
+<section id="story" class="story-section">
+
+    <div class="chapter">
+        <h2>CAPÍTULO 1 — El Problema</h2>
+        <p>
+            El estrés crónico y la sobreexigencia afectan hoy a millones de personas. 
+            La desconexión cuerpo–mente se vuelve cada vez mayor, y la necesidad por 
+            una solución natural se hace urgente.
+        </p>
+    </div>
+
+    <div class="chapter">
+        <h2>CAPÍTULO 2 — Nace Ashlion</h2>
+        <p>
+            Un blend botánico que combina dos ingredientes milenarios: Ashwagandha y 
+            Melena de León. Juntos generan una sinergia única que restaura el equilibrio interno.
+        </p>
+    </div>
+
+</section>
+
+<style>
+    .story-section { 
+        padding:120px 14%; 
+        background:white; 
+        position:relative;
+    }
+    .chapter {
+        margin:80px 0;
+        opacity:0;
+        transform:translateY(40px);
+        transition:1s ease;
+    }
+    .chapter.visible {
+        opacity:1;
+        transform:translateY(0);
+    }
+    .chapter h2 {
+        font-size:3rem;
+        color:#4f634a;
+    }
+</style>
+
+<script>
+    const chapters=document.querySelectorAll('.chapter');
+    const observer=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+            if(e.isIntersecting){ e.target.classList.add('visible'); }
+        });
+    },{threshold:.3});
+    chapters.forEach(ch=>observer.observe(ch));
+</script>

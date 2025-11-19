@@ -1,0 +1,72 @@
+.encuestas-section {
+    background:#ffffff;
+    padding:140px 12%;
+}
+
+.encuestas-title {
+    font-size:3rem;
+    font-family:"Playfair Display";
+    color:#4f634a;
+    text-align:center;
+}
+
+.encuestas-sub {
+    text-align:center;
+    opacity:.75;
+    margin-top:8px;
+    margin-bottom:70px;
+}
+
+.encuestas-grid {
+    display:grid;
+    gap:40px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+
+.enc-box {
+    background:#ffffffdf;
+    padding:40px;
+    border-radius:16px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+    backdrop-filter:blur(6px);
+    border-left:6px solid #4f634a;
+}
+
+.enc-box h3 {
+    font-size:1.7rem;
+    margin-bottom:20px;
+    color:#4f634a;
+    font-weight:600;
+}
+
+/* Barras animadas */
+.bar-item {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.bar-bg {
+    width:60%;
+    height:12px;
+    background:#e8e8e8;
+    border-radius:20px;
+    margin:0 10px;
+    overflow:hidden;
+}
+
+.bar-fill {
+    height:100%;
+    width:0%;
+    background:#4f634a;
+    border-radius:20px;
+    transition:1.5s ease;
+}
+
+.bar-num {
+    width:50px;
+    text-align:right;
+    opacity:.8;
+}
+

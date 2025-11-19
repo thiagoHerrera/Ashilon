@@ -1,0 +1,67 @@
+.ingredientes-section {
+    background:#faf8f4;
+    padding:140px 12%;
+}
+
+.ingredientes-title {
+    font-family:"Playfair Display";
+    font-size:3.2rem;
+    color:#4f634a;
+    text-align:center;
+}
+
+.ingredientes-sub {
+    text-align:center;
+    opacity:.75;
+    margin-top:10px;
+    margin-bottom:80px;
+    font-size:1.15rem;
+}
+
+.ingrediente-item {
+    display:flex;
+    gap:60px;
+    align-items:center;
+    margin-bottom:120px;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.ingrediente-item.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+
+.reverse {
+    flex-direction:row-reverse;
+}
+
+.ingrediente-text h3 {
+    font-size:2.2rem;
+    margin-bottom:20px;
+    color:#4f634a;
+}
+
+.ingrediente-text p {
+    margin-bottom:15px;
+    font-size:1.1rem;
+    opacity:.85;
+}
+
+.ingrediente-illus {
+    text-align:center;
+}
+
+.illus {
+    width:330px;
+    opacity:.95;
+    filter:drop-shadow(0 8px 30px rgba(0,0,0,0.15));
+}
+
+.illus-caption {
+    font-size:.9rem;
+    opacity:.6;
+    margin-top:10px;
+    font-style:italic;
+}

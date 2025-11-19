@@ -1,0 +1,53 @@
+.foda-section {
+    background:#f6f4ef;
+    padding:140px 12%;
+    position:relative;
+}
+
+.foda-title {
+    font-family:"Playfair Display";
+    font-size:3rem;
+    color:#4f634a;
+    text-align:center;
+}
+
+.foda-sub {
+    text-align:center;
+    opacity:.7;
+    margin-bottom:80px;
+}
+
+.foda-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.foda-card {
+    background:#ffffffd9;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.08);
+    backdrop-filter:blur(8px);
+    border-left:7px solid #4f634a;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.foda-card.visible {
+    opacity:1;
+    transform:translateY(0);
+}
+
+.foda-card h3 {
+    font-size:1.9rem;
+    color:#4f634a;
+    margin-bottom:15px;
+    font-family:"Playfair Display";
+}
+
+.foda-card ul li {
+    margin:10px 0;
+    opacity:.85;
+}

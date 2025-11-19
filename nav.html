@@ -1,0 +1,46 @@
+<nav class="nav">
+    <div class="nav-inner">
+        <span class="nav-logo">ASHLION</span>
+        <ul class="nav-links">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#story">Historia</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#ingredientes">Ingredientes</a></li>
+            <li><a href="#encuestas">Encuestas</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .nav {
+        position:fixed;
+        width:100%;
+        top:0;
+        padding:15px 50px;
+        background:rgba(255,255,255,0.75);
+        backdrop-filter:blur(10px);
+        z-index:1000;
+        box-shadow:0 4px 20px rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .nav-logo {
+        font-size:1.8rem;
+        color:#4f634a;
+        letter-spacing:4px;
+        font-weight:700;
+    }
+    .nav-links {
+        display:flex; gap:25px; list-style:none;
+    }
+    .nav-links a {
+        text-decoration:none;
+        font-family:"Inter", sans-serif;
+        color:#2b2b2b;
+        transition:.3s;
+    }
+    .nav-links a:hover { color:#4f634a; }
+</style>
